@@ -58,6 +58,13 @@ public abstract class BattleLoc  extends Location {
 
             }
             if (this.getMonster().getHealth()<this.getPlayer().getHealth()){
+
+                if(this.getMonster() instanceof Snake){
+                    //yılansa aşşağıdaki gibi devam et
+                }
+
+                if (this.getMonster().getName().equals("Yılan"))
+
                 System.out.println("Düşmanı yendiniz!");
                 System.out.println(this.getMonster().getAward()+" para kazandınız.");
                 this.getPlayer().setMoney(this.getPlayer().getMoney()+this.getMonster().getAward());

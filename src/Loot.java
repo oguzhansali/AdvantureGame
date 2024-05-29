@@ -18,8 +18,20 @@ public class Loot {
         if (chance<=no_loot_probability){
             return "Hiç bir şey kazanamadınız.";
         }
-        chance-=no_loot_probability;
 
+        //chance-=no_loot_probability;
+        chance=100-random.nextInt(100)+1;
+        if (chance>=15){
+            System.out.println("Silah alınıyor.");
+            chance=random.nextInt(100)+1;
+            if (chance<=20){
+                //tüfek kazandın
+            } else if (chance>20&&chance<=50) {
+                //kılıç kazandın
+            } else {
+                //tabanca kazandın
+            }
+        }
         //Silahlar.
         for (int i=0;i< weapons.length;i++){
             if (chance<=loot_probabilities[i]){
@@ -27,6 +39,8 @@ public class Loot {
             }
             chance-= loot_probabilities[i];
         }
+
+        chance=random.nextInt(100)+1;
         //Zırhlar.
         for (int i=0;i< armors.length;i++){
             if (chance<=loot_probabilities[i+ weapons.length]){
